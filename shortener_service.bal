@@ -19,6 +19,10 @@ service on new http:Listener(8080) {
         return res;
     }
 
+    resource function get all() returns json|error {
+        return shortener.all();
+    }
+
     resource function post shorten(@http:Payload string payload) returns http:Response|error {
         var newUrl = check jsondata:read(check jsondata:parseString(payload), `$.url`);
         check shortener.add(newUrl.toString());

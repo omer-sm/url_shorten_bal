@@ -21,6 +21,10 @@ public class FileDB {
         }
     }
 
+    function getAll() returns json|error {
+        return check io:fileReadJson(self.filePath);
+    }
+
     function get(string key) returns json|error {
         json data = check io:fileReadJson(self.filePath);
         map<json> dataMap = check data.ensureType();

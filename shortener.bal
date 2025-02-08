@@ -8,6 +8,10 @@ public class Shortener {
         self.db = db;
     }
 
+    function all() returns json|error? {
+        return self.db.getAll();
+    }
+
     function add(string url) returns error? {
         string key = check self.generateKey();
 
