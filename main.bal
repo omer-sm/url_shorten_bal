@@ -1,5 +1,8 @@
 import ballerina/io;
-
 public function main() {
-    io:println("Hello, World!");
+    var db = checkpanic new FileDB("./data/data.json", true);
+    checkpanic db.insert("mykey", "value");
+    var val = checkpanic db.get("mykey");
+
+    io:println(val);
 }
