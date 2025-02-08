@@ -1,7 +1,7 @@
 import ballerina/http;
 import ballerina/data.jsondata;
 
-Shortener shortener = new(checkpanic new FileDB("./data/data.json", true));
+Shortener shortener = new(checkpanic new FileDB("./data.json", true));
 
 service on new http:Listener(8080) {
     resource function get [string urlKey]() returns http:Response {

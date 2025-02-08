@@ -11,7 +11,7 @@ public class FileDB {
     }
 
     function initializeDb(boolean doReset) returns error? {
-        if doReset {
+        if doReset && (check file:test(self.filePath, file:EXISTS)) {
             check file:remove(self.filePath);
         }
 
