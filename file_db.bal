@@ -34,5 +34,9 @@ public class FileDB {
 
         check io:fileWriteJson(self.filePath, newData);
     }
+
+    function has(string key) returns boolean|error {
+        return self.get(key) !== ();
+    }
     
 }
