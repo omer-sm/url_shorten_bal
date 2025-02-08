@@ -1,10 +1,7 @@
-import ballerina/io;
+import ballerina/io as _;
 public function main() {
     var db = checkpanic new FileDB("./data/data.json", true);
-    checkpanic db.insert("mykey", "value");
-    var val = checkpanic db.get("mykey");
-    var val1 = checkpanic db.get("mykey1");
+    var shortener = new Shortener(db);
 
-    io:println(val);
-    io:println(val1 === ());
+    checkpanic shortener.add("https://google.com");
 }
